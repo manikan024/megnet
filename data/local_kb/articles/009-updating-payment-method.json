@@ -1,0 +1,11 @@
+{
+  "id": "009",
+  "title": "Updating Payment Method",
+  "category": "Billing",
+  "tags": [
+    "billing",
+    "updating"
+  ],
+  "content": "Billing > Payment Methods > Add card. Primary card is charged on renewal date. Category: Billing. Article ID: 009.",
+  "updated_at": "2026-06-10"
+}

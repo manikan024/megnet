@@ -1,0 +1,11 @@
+{
+  "id": "032",
+  "title": "Audit Log",
+  "category": "Security",
+  "tags": [
+    "security",
+    "audit"
+  ],
+  "content": "Admin > Audit shows who changed settings, exported data, or deleted tickets. Category: Security. Article ID: 032.",
+  "updated_at": "2026-06-10"
+}

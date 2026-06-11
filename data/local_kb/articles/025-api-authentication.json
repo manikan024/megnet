@@ -1,0 +1,15 @@
+{
+  "id": "025",
+  "title": "API Authentication",
+  "category": "Integrations",
+  "tags": [
+    "integrations",
+    "api"
+  ],
+  "content": "Generate API keys at Admin > API. Use Bearer token in Authorization header. Category: Integrations. Article ID: 025.",
+  "updated_at": "2026-06-10",
+  "image": {
+    "path": "images/security-center.png",
+    "caption": "API Authentication"
+  }
+}

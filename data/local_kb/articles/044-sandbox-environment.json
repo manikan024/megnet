@@ -1,0 +1,11 @@
+{
+  "id": "044",
+  "title": "Sandbox Environment",
+  "category": "Admin",
+  "tags": [
+    "admin",
+    "sandbox"
+  ],
+  "content": "Enterprise: clone production to sandbox for testing automations without live impact. Category: Admin. Article ID: 044.",
+  "updated_at": "2026-06-10"
+}

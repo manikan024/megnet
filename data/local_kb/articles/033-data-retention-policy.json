@@ -1,0 +1,11 @@
+{
+  "id": "033",
+  "title": "Data Retention Policy",
+  "category": "Security",
+  "tags": [
+    "security",
+    "data"
+  ],
+  "content": "Default: tickets archived after 2 years. Configure per plan in Admin > Retention. Category: Security. Article ID: 033.",
+  "updated_at": "2026-06-10"
+}

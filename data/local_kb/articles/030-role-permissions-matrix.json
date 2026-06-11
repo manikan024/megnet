@@ -1,0 +1,15 @@
+{
+  "id": "030",
+  "title": "Role Permissions Matrix",
+  "category": "Security",
+  "tags": [
+    "security",
+    "role"
+  ],
+  "content": "Admin: full access. Agent: tickets + KB edit. Viewer: read-only reports. Category: Security. Article ID: 030.",
+  "updated_at": "2026-06-10",
+  "image": {
+    "path": "images/mobile-app.png",
+    "caption": "Role Permissions Matrix"
+  }
+}

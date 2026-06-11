@@ -1,0 +1,11 @@
+{
+  "id": "019",
+  "title": "Automation Rules",
+  "category": "Features",
+  "tags": [
+    "features",
+    "automation"
+  ],
+  "content": "Triggers on create/update/schedule. Actions: assign, tag, email, webhook. Category: Features. Article ID: 019.",
+  "updated_at": "2026-06-10"
+}

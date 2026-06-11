@@ -1,0 +1,15 @@
+{
+  "id": "006",
+  "title": "Importing Existing Data",
+  "category": "Onboarding",
+  "tags": [
+    "onboarding",
+    "importing"
+  ],
+  "content": "Use Admin > Import to upload CSV contacts and tickets. Download the template first to match required columns. Category: Onboarding. Article ID: 006.",
+  "updated_at": "2026-06-10",
+  "image": {
+    "path": "images/onboarding-wizard.png",
+    "caption": "Importing Existing Data"
+  }
+}

@@ -1,0 +1,521 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MagnetChatBot</title>
+  <style>
+    :root {
+      --bg: #f1f5f9;
+      --panel: #ffffff;
+      --border: #e2e8f0;
+      --text: #0f172a;
+      --muted: #64748b;
+      --accent: #2563eb;
+      --accent-soft: #dbeafe;
+      --user: #dbeafe;
+      --bot: #ffffff;
+      --success: #059669;
+      --danger: #dc2626;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    header {
+      background: var(--panel);
+      border-bottom: 1px solid var(--border);
+      padding: 14px 20px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+      justify-content: space-between;
+    }
+    header h1 { margin: 0; font-size: 18px; font-weight: 700; }
+    .tabs { display: flex; gap: 6px; }
+    .tab {
+      border: 1px solid var(--border);
+      background: #fff;
+      border-radius: 8px;
+      padding: 8px 14px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      color: var(--muted);
+    }
+    .tab.active { background: var(--accent-soft); color: var(--accent); border-color: #93c5fd; }
+    .panel { display: none; flex: 1; flex-direction: column; min-height: 0; }
+    .panel.active { display: flex; }
+    #chat {
+      flex: 1;
+      overflow-y: auto;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      max-width: 900px;
+      width: 100%;
+      margin: 0 auto;
+    }
+    .msg {
+      max-width: 90%;
+      padding: 12px 14px;
+      border-radius: 14px;
+      line-height: 1.55;
+      font-size: 14px;
+      word-break: break-word;
+    }
+    .msg.user {
+      align-self: flex-end;
+      background: var(--user);
+      border-bottom-right-radius: 4px;
+    }
+    .msg.bot {
+      align-self: flex-start;
+      background: var(--bot);
+      border: 1px solid var(--border);
+      border-bottom-left-radius: 4px;
+    }
+    .msg-html strong, .msg-html b { font-weight: 700; }
+    .msg-html h3, .msg-html h4 { margin: 0.5em 0 0.25em; font-size: 1em; }
+    .msg-html p { margin: 0.35em 0; }
+    .msg-html ul, .msg-html ol { margin: 0.35em 0; padding-left: 1.35em; }
+    .msg-html a { color: var(--accent); }
+    .msg-html figure { margin: 10px 0; }
+    .msg-html img { max-width: 100%; border-radius: 8px; border: 1px solid var(--border); }
+    .msg-html figcaption { font-size: 12px; color: var(--muted); margin-top: 4px; }
+    .sources {
+      margin-top: 10px;
+      padding-top: 8px;
+      border-top: 1px dashed var(--border);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .source-card {
+      font-size: 12px;
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 8px 10px;
+      min-width: 140px;
+      max-width: 220px;
+    }
+    .source-card img { width: 100%; height: 60px; object-fit: cover; border-radius: 4px; margin-bottom: 4px; }
+    .source-card .score { color: var(--muted); }
+    footer {
+      background: var(--panel);
+      border-top: 1px solid var(--border);
+      padding: 14px 20px;
+    }
+    .composer {
+      max-width: 900px;
+      margin: 0 auto;
+      display: flex;
+      gap: 10px;
+    }
+    #query {
+      flex: 1;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 12px 14px;
+      font-size: 14px;
+      resize: none;
+      min-height: 46px;
+      max-height: 140px;
+      font-family: inherit;
+    }
+    button {
+      border: none;
+      border-radius: 10px;
+      background: var(--accent);
+      color: #fff;
+      font-size: 14px;
+      font-weight: 600;
+      padding: 0 18px;
+      cursor: pointer;
+      min-width: 88px;
+    }
+    button.secondary { background: #475569; min-width: auto; }
+    button.danger { background: var(--danger); }
+    button:disabled { opacity: 0.55; cursor: not-allowed; }
+    .status { font-size: 12px; color: var(--muted); margin-top: 8px; text-align: center; }
+    .voice-panel {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 24px 20px;
+      width: 100%;
+    }
+    .voice-card {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 24px;
+    }
+    .voice-card h2 { margin: 0 0 8px; font-size: 16px; }
+    .voice-card p { margin: 0 0 16px; color: var(--muted); font-size: 14px; line-height: 1.5; }
+    .voice-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 16px; }
+    .voice-log {
+      background: #0f172a;
+      color: #e2e8f0;
+      border-radius: 10px;
+      padding: 14px;
+      font-family: ui-monospace, monospace;
+      font-size: 12px;
+      min-height: 180px;
+      max-height: 320px;
+      overflow-y: auto;
+      white-space: pre-wrap;
+    }
+    .pill {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 600;
+      background: var(--accent-soft);
+      color: var(--accent);
+    }
+    .pill.recording { background: #fee2e2; color: var(--danger); }
+    .pill.processing { background: #fef3c7; color: #b45309; }
+    .mic-btn {
+      width: 88px;
+      height: 88px;
+      border-radius: 50%;
+      border: none;
+      font-size: 32px;
+      cursor: pointer;
+      background: var(--accent);
+      color: #fff;
+      box-shadow: 0 4px 14px rgba(37, 99, 235, 0.35);
+      transition: transform 0.15s, background 0.15s, box-shadow 0.15s;
+    }
+    .mic-btn:hover:not(:disabled) { transform: scale(1.05); }
+    .mic-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+    .mic-btn.recording {
+      background: var(--danger);
+      box-shadow: 0 0 0 8px rgba(220, 38, 38, 0.2);
+      animation: pulse-mic 1.2s ease-in-out infinite;
+    }
+    @keyframes pulse-mic {
+      0%, 100% { box-shadow: 0 0 0 8px rgba(220, 38, 38, 0.2); }
+      50% { box-shadow: 0 0 0 16px rgba(220, 38, 38, 0.08); }
+    }
+    .mic-wrap { display: flex; flex-direction: column; align-items: center; gap: 10px; margin-bottom: 16px; }
+    .mic-label { font-size: 14px; color: var(--muted); text-align: center; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>MagnetChatBot</h1>
+    <div class="tabs">
+      <button type="button" class="tab active" data-tab="text">Text Chat</button>
+      <button type="button" class="tab" data-tab="voice">Voice</button>
+    </div>
+    <button type="button" class="secondary" id="newChat">New chat</button>
+  </header>
+
+  <section class="panel active" id="panel-text">
+    <main id="chat"></main>
+    <footer>
+      <form class="composer" id="form">
+        <textarea id="query" rows="1" placeholder="Ask about AcmeDesk…" required></textarea>
+        <button type="submit" id="sendBtn">Send</button>
+      </form>
+      <div class="status" id="status">Ready</div>
+    </footer>
+  </section>
+
+  <section class="panel" id="panel-voice">
+    <div class="voice-panel">
+      <div class="voice-card">
+        <h2>Gemini Live Voice <span class="pill" id="voiceStatus">idle</span></h2>
+        <p><strong>How to use:</strong> Open this tab to connect → tap 🎤 to speak → tap 🎤 again to stop → AI replies. No waiting — you control start and stop.</p>
+        <div class="mic-wrap">
+          <button type="button" class="mic-btn" id="micBtn" title="Click to speak">🎤</button>
+          <div class="mic-label" id="micLabel">Click mic to start</div>
+        </div>
+        <div class="voice-actions">
+          <button type="button" class="danger" id="endSessionBtn" disabled>End session</button>
+        </div>
+        <div class="voice-log" id="voiceLog">Voice log will appear here…</div>
+        <p style="margin-top:12px;font-size:12px;color:var(--muted)">
+          Terminal CLI alternative: <code>python3 scripts/local_kb_voice.py --mode none</code>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <script src="/static/js/geminilive.js?v=9"></script>
+  <script type="module">
+    import { createGeminiVoiceController } from "/static/js/gemini-kb-voice.js?v=9";
+
+    const API_BASE = window.location.origin;
+    let conversationId = localStorage.getItem("local_kb_conv") || ("conv-" + Math.random().toString(36).slice(2, 12));
+    let responseId = "";
+    let streaming = false;
+    let geminiVoice = null;
+
+    const chatEl = document.getElementById("chat");
+    const formEl = document.getElementById("form");
+    const queryEl = document.getElementById("query");
+    const sendBtn = document.getElementById("sendBtn");
+    const statusEl = document.getElementById("status");
+    const voiceLog = document.getElementById("voiceLog");
+    const voiceStatus = document.getElementById("voiceStatus");
+
+    function setStatus(text) { statusEl.textContent = text; }
+    function logVoice(text) {
+      voiceLog.textContent += (voiceLog.textContent ? "\n" : "") + text;
+      voiceLog.scrollTop = voiceLog.scrollHeight;
+    }
+
+    function sanitizeHtml(html) {
+      const allowed = new Set(["P","STRONG","B","EM","I","UL","OL","LI","H3","H4","A","IMG","SPAN","BR","FIGURE","FIGCAPTION"]);
+      const doc = new DOMParser().parseFromString(html, "text/html");
+      function walk(node) {
+        [...node.childNodes].forEach((child) => {
+          if (child.nodeType === 1) {
+            const tag = child.tagName;
+            if (!allowed.has(tag)) {
+              const frag = document.createDocumentFragment();
+              while (child.firstChild) frag.appendChild(child.firstChild);
+              child.replaceWith(frag);
+              walk(frag);
+              return;
+            }
+            if (tag === "A") child.setAttribute("rel", "noopener");
+            if (tag === "IMG") {
+              child.removeAttribute("onerror");
+              child.removeAttribute("onload");
+            }
+            [...child.attributes].forEach((attr) => {
+              const n = attr.name.toLowerCase();
+              if (n.startsWith("on")) child.removeAttribute(attr.name);
+              if (tag === "A" && n !== "href" && n !== "target" && n !== "rel") child.removeAttribute(attr.name);
+              if (tag === "IMG" && !["src","alt","style","width","height"].includes(n)) child.removeAttribute(attr.name);
+              if (tag === "SPAN" && n !== "style") child.removeAttribute(attr.name);
+            });
+          }
+          walk(child);
+        });
+      }
+      walk(doc.body);
+      return doc.body.innerHTML;
+    }
+
+    function renderSources(container, sources) {
+      if (!sources || !sources.length) return;
+      const wrap = document.createElement("div");
+      wrap.className = "sources";
+      sources.forEach((s) => {
+        const card = document.createElement("div");
+        card.className = "source-card";
+        let html = "";
+        if (s.image_url) html += `<img src="${s.image_url}" alt="">`;
+        html += `<div><strong>${s.title || s.id}</strong></div>`;
+        if (s.score != null) html += `<div class="score">relevance ${(s.score * 100).toFixed(0)}%</div>`;
+        card.innerHTML = html;
+        wrap.appendChild(card);
+      });
+      container.appendChild(wrap);
+    }
+
+    function appendMessage(role, html, sources) {
+      const div = document.createElement("div");
+      div.className = "msg " + role;
+      if (role === "bot") {
+        div.innerHTML = '<div class="msg-html">' + sanitizeHtml(html || "") + "</div>";
+        renderSources(div, sources);
+      } else {
+        div.textContent = html;
+      }
+      chatEl.appendChild(div);
+      chatEl.scrollTop = chatEl.scrollHeight;
+      return div;
+    }
+
+    function parseSse(buffer) {
+      const events = [];
+      const parts = buffer.split("\n\n");
+      const rest = parts.pop() || "";
+      parts.forEach((block) => {
+        let eventName = "message";
+        let data = "";
+        block.split("\n").forEach((line) => {
+          if (line.startsWith("event:")) eventName = line.slice(6).trim();
+          else if (line.startsWith("data:")) data += (data ? "\n" : "") + line.slice(5).trim();
+        });
+        if (data) {
+          try { events.push({ event: eventName, data: JSON.parse(data) }); }
+          catch { events.push({ event: eventName, data: data }); }
+        }
+      });
+      return { events, rest };
+    }
+
+    async function sendChat(userQuery) {
+      if (streaming) return;
+      streaming = true;
+      sendBtn.disabled = true;
+      appendMessage("user", userQuery);
+
+      const botBubble = appendMessage("bot", '<em style="color:#64748b">Searching knowledge base…</em>');
+      const bodyEl = botBubble.querySelector(".msg-html");
+      let answer = "";
+      let sources = [];
+
+      setStatus("Streaming…");
+      try {
+        const res = await fetch(API_BASE + "/api/chat/stream", {
+          method: "POST",
+          headers: { "Content-Type": "application/json", Accept: "text/event-stream" },
+          body: JSON.stringify({
+            query: userQuery,
+            conversation_id: conversationId,
+            response_id: responseId || undefined,
+          }),
+        });
+        if (!res.ok) throw new Error("HTTP " + res.status + ": " + await res.text());
+        const reader = res.body.getReader();
+        const decoder = new TextDecoder();
+        let buffer = "";
+        while (true) {
+          const chunk = await reader.read();
+          if (chunk.value) buffer += decoder.decode(chunk.value, { stream: true });
+          const parsed = parseSse(buffer);
+          buffer = parsed.rest;
+          parsed.events.forEach((ev) => {
+            if (ev.event === "delta" && ev.data.text) {
+              answer += ev.data.text;
+              bodyEl.innerHTML = sanitizeHtml(answer);
+              chatEl.scrollTop = chatEl.scrollHeight;
+            } else if (ev.event === "sources") {
+              sources = ev.data;
+            } else if (ev.event === "done") {
+              if (ev.data.answer) answer = ev.data.answer;
+              if (ev.data.sources) sources = ev.data.sources;
+              if (ev.data.response_id) responseId = ev.data.response_id;
+            } else if (ev.event === "error") {
+              throw new Error(ev.data.message || "Stream error");
+            }
+          });
+          if (chunk.done) break;
+        }
+        bodyEl.innerHTML = sanitizeHtml(answer || "<em>No answer returned.</em>");
+        const oldSources = botBubble.querySelector(".sources");
+        if (oldSources) oldSources.remove();
+        renderSources(botBubble, sources);
+        localStorage.setItem("local_kb_conv", conversationId);
+        setStatus("Ready · " + conversationId);
+      } catch (err) {
+        bodyEl.innerHTML = "<strong>Error:</strong> " + (err.message || String(err));
+        setStatus("Request failed");
+      } finally {
+        streaming = false;
+        sendBtn.disabled = false;
+      }
+    }
+
+    const micBtn = document.getElementById("micBtn");
+    const micLabel = document.getElementById("micLabel");
+    const endSessionBtn = document.getElementById("endSessionBtn");
+
+    const MIC_LABELS = {
+      idle: "Open this tab to connect",
+      connecting: "Connecting…",
+      ready: "Tap mic → speak",
+      recording: "Tap mic to stop & send",
+      processing: "AI is thinking…",
+      speaking: "AI is speaking…",
+    };
+
+    function updateVoiceUi(state) {
+      voiceStatus.textContent = state;
+      voiceStatus.className = "pill" + (state === "recording" ? " recording" : state === "processing" ? " processing" : state === "ready" || state === "speaking" ? " live" : "");
+      micBtn.classList.toggle("recording", state === "recording");
+      micBtn.disabled = state !== "ready" && state !== "recording";
+      micLabel.textContent = MIC_LABELS[state] || state;
+      endSessionBtn.disabled = state === "idle" || state === "connecting";
+    }
+
+    function ensureVoice() {
+      if (!geminiVoice) {
+        geminiVoice = createGeminiVoiceController({
+          apiBase: API_BASE,
+          log: logVoice,
+          onStatus: updateVoiceUi,
+        });
+      }
+      return geminiVoice;
+    }
+
+    async function onMicClick() {
+      const v = ensureVoice();
+      if (!v.isConnected()) return;
+      v.toggleMic();
+    }
+
+    async function onVoiceTabOpen() {
+      try {
+        await ensureVoice().connect();
+        logVoice("Connected — tap mic to speak.");
+      } catch (err) {
+        logVoice("Error: " + (err.message || String(err)));
+        geminiVoice?.disconnect();
+        geminiVoice = null;
+        updateVoiceUi("idle");
+      }
+    }
+
+    function endSession() {
+      geminiVoice?.disconnect();
+      geminiVoice = null;
+      voiceLog.textContent = "";
+      updateVoiceUi("idle");
+    }
+
+    document.querySelectorAll(".tab").forEach((tab) => {
+      tab.addEventListener("click", () => {
+        document.querySelectorAll(".tab").forEach((t) => t.classList.remove("active"));
+        document.querySelectorAll(".panel").forEach((p) => p.classList.remove("active"));
+        tab.classList.add("active");
+        document.getElementById("panel-" + tab.dataset.tab).classList.add("active");
+        if (tab.dataset.tab === "voice") onVoiceTabOpen();
+      });
+    });
+
+    formEl.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const text = queryEl.value.trim();
+      if (!text) return;
+      queryEl.value = "";
+      sendChat(text);
+    });
+
+    document.getElementById("newChat").addEventListener("click", () => {
+      conversationId = "conv-" + Math.random().toString(36).slice(2, 12);
+      responseId = "";
+      chatEl.innerHTML = "";
+      localStorage.setItem("local_kb_conv", conversationId);
+      setStatus("New conversation · " + conversationId);
+    });
+
+    micBtn.addEventListener("click", onMicClick);
+    endSessionBtn.addEventListener("click", endSession);
+
+    queryEl.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" && !e.shiftKey) { e.preventDefault(); formEl.requestSubmit(); }
+    });
+
+    setStatus("Ready · " + conversationId);
+  </script>
+</body>
+</html>

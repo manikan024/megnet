@@ -1,0 +1,15 @@
+{
+  "id": "010",
+  "title": "Viewing Invoices",
+  "category": "Billing",
+  "tags": [
+    "billing",
+    "viewing"
+  ],
+  "content": "All invoices are under Billing > Invoices. Download PDF or email to accounting. Category: Billing. Article ID: 010.",
+  "updated_at": "2026-06-10",
+  "image": {
+    "path": "images/billing-flow.png",
+    "caption": "Viewing Invoices"
+  }
+}

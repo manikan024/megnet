@@ -1,0 +1,11 @@
+{
+  "id": "026",
+  "title": "Zapier Connector",
+  "category": "Integrations",
+  "tags": [
+    "integrations",
+    "zapier"
+  ],
+  "content": "Search AcmeDesk in Zapier. Triggers: new ticket, status change. Actions: create ticket, add note. Category: Integrations. Article ID: 026.",
+  "updated_at": "2026-06-10"
+}

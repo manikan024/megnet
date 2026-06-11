@@ -1,0 +1,11 @@
+{
+  "id": "049",
+  "title": "Webhook Delivery Failures",
+  "category": "Troubleshooting",
+  "tags": [
+    "troubleshooting",
+    "webhook"
+  ],
+  "content": "View failure log at Integrations > Webhooks > History. Fix 4xx/5xx on your endpoint. Category: Troubleshooting. Article ID: 049.",
+  "updated_at": "2026-06-10"
+}

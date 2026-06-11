@@ -1,0 +1,37 @@
+{
+  "conversation_id": "conv-dlh53le8pn",
+  "messages": [
+    {
+      "role": "user",
+      "content": "hi"
+    },
+    {
+      "role": "assistant",
+      "content": "<p>Hello! How can I assist you today?</p>"
+    },
+    {
+      "role": "user",
+      "content": "hi"
+    },
+    {
+      "role": "assistant",
+      "content": "<p>Hello! How can I assist you today?</p>"
+    },
+    {
+      "role": "user",
+      "content": "how to login"
+    },
+    {
+      "role": "assistant",
+      "content": "<h3>How to Login to AcmeDesk</h3>\n<p>To log in to AcmeDesk, follow these steps:</p>\n<ol>\n    <li>Visit the AcmeDesk login page.</li>\n    <li>Enter your username and password.</li>\n    <li>If you encounter issues, you can reset your password from the login page.</li>\n    <li>If you are using Single Sign-On (SSO) and it fails, verify the IdP certificate expiry.</li>\n</ol>\n<p>For more detailed guidance, please refer to the troubleshooting section.</p>"
+    },
+    {
+      "role": "user",
+      "content": "how to onbording"
+    },
+    {
+      "role": "assistant",
+      "content": "<p>To get started with onboarding in AcmeDesk, follow these steps:</p>\n<ol>\n    <li>Create your account and verify your email.</li>\n    <li>Complete the welcome checklist provided after account creation.</li>\n    <li>To create your first ticket, navigate to <strong>Tickets</strong> > <strong>New</strong>.</li>\n    <li>Add a subject, priority, assignee, and tags to your ticket.</li>\n    <li>You can reply to conversations from the conversation panel.</li>\n</ol>\n<p>These steps will help you become familiar with the platform.</p>"
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "id": "015",
+  "title": "Ticket Queues and Routing",
+  "category": "Features",
+  "tags": [
+    "features",
+    "ticket"
+  ],
+  "content": "Create queues per team. Auto-assign by round-robin or load-based rules. Category: Features. Article ID: 015.",
+  "updated_at": "2026-06-10",
+  "image": {
+    "path": "images/team-settings.png",
+    "caption": "Ticket Queues and Routing"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "id": "020",
+  "title": "Knowledge Base Publishing",
+  "category": "Features",
+  "tags": [
+    "features",
+    "knowledge"
+  ],
+  "content": "Draft articles in KB > New. Publish to public help center or internal only. Category: Features. Article ID: 020.",
+  "updated_at": "2026-06-10",
+  "image": {
+    "path": "images/integrations-hub.png",
+    "caption": "Knowledge Base Publishing"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "id": "022",
+  "title": "Slack Integration",
+  "category": "Integrations",
+  "tags": [
+    "integrations",
+    "slack"
+  ],
+  "content": "Connect at Integrations > Slack. Route notifications to channels by queue or priority. Category: Integrations. Article ID: 022.",
+  "updated_at": "2026-06-10"
+}

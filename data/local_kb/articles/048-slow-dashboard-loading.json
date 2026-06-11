@@ -1,0 +1,15 @@
+{
+  "id": "048",
+  "title": "Slow Dashboard Loading",
+  "category": "Troubleshooting",
+  "tags": [
+    "troubleshooting",
+    "slow"
+  ],
+  "content": "Clear browser cache. Large date ranges in reports may take longer; narrow filters. Category: Troubleshooting. Article ID: 048.",
+  "updated_at": "2026-06-10",
+  "image": {
+    "path": "images/notification-center.png",
+    "caption": "Slow Dashboard Loading"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "id": "031",
+  "title": "IP Allowlisting",
+  "category": "Security",
+  "tags": [
+    "security",
+    "ip"
+  ],
+  "content": "Enterprise: restrict admin login to corporate IP ranges under Security > Network. Category: Security. Article ID: 031.",
+  "updated_at": "2026-06-10"
+}

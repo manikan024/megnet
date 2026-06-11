@@ -1,0 +1,11 @@
+{
+  "id": "043",
+  "title": "Email Templates",
+  "category": "Admin",
+  "tags": [
+    "admin",
+    "email"
+  ],
+  "content": "Customize outbound templates with {{ticket.id}} and {{customer.name}} placeholders. Category: Admin. Article ID: 043.",
+  "updated_at": "2026-06-10"
+}

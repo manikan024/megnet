@@ -1,0 +1,11 @@
+{
+  "id": "023",
+  "title": "Email Channel Setup",
+  "category": "Integrations",
+  "tags": [
+    "integrations",
+    "email"
+  ],
+  "content": "Add support@yourdomain.com. Verify DNS records: SPF, DKIM, MX forwarding. Category: Integrations. Article ID: 023.",
+  "updated_at": "2026-06-10"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "028",
+  "title": "Google Workspace SSO",
+  "category": "Integrations",
+  "tags": [
+    "integrations",
+    "google"
+  ],
+  "content": "Configure SAML in Security > SSO. Test with a pilot group before org-wide rollout. Category: Integrations. Article ID: 028.",
+  "updated_at": "2026-06-10"
+}

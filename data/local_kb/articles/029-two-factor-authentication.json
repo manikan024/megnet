@@ -1,0 +1,11 @@
+{
+  "id": "029",
+  "title": "Two-Factor Authentication",
+  "category": "Security",
+  "tags": [
+    "security",
+    "two"
+  ],
+  "content": "Profile > Security > Enable 2FA. Supports authenticator apps and SMS backup. Category: Security. Article ID: 029.",
+  "updated_at": "2026-06-10"
+}

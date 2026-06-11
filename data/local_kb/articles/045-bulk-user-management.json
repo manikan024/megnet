@@ -1,0 +1,15 @@
+{
+  "id": "045",
+  "title": "Bulk User Management",
+  "category": "Admin",
+  "tags": [
+    "admin",
+    "bulk"
+  ],
+  "content": "CSV import users or deactivate in bulk from Admin > Users. Category: Admin. Article ID: 045.",
+  "updated_at": "2026-06-10",
+  "image": {
+    "path": "images/api-console.png",
+    "caption": "Bulk User Management"
+  }
+}

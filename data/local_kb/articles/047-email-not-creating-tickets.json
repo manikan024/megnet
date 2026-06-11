@@ -1,0 +1,11 @@
+{
+  "id": "047",
+  "title": "Email Not Creating Tickets",
+  "category": "Troubleshooting",
+  "tags": [
+    "troubleshooting",
+    "email"
+  ],
+  "content": "Check forwarding rule and spam folder. Verify domain DNS in Integrations > Email. Category: Troubleshooting. Article ID: 047.",
+  "updated_at": "2026-06-10"
+}

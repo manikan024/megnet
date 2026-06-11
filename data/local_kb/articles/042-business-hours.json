@@ -1,0 +1,11 @@
+{
+  "id": "042",
+  "title": "Business Hours",
+  "category": "Admin",
+  "tags": [
+    "admin",
+    "business"
+  ],
+  "content": "Set timezone and hours per queue. After-hours auto-replies use Business Hours message. Category: Admin. Article ID: 042.",
+  "updated_at": "2026-06-10"
+}

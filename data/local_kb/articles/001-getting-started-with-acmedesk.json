@@ -1,0 +1,15 @@
+{
+  "id": "001",
+  "title": "Getting Started with AcmeDesk",
+  "category": "Onboarding",
+  "tags": [
+    "onboarding",
+    "getting"
+  ],
+  "content": "Create your account, verify email, and complete the welcome checklist. Navigate to Settings > Profile to update your display name and timezone. Category: Onboarding. Article ID: 001.",
+  "updated_at": "2026-06-10",
+  "image": {
+    "path": "images/dashboard-overview.png",
+    "caption": "Getting Started with AcmeDesk"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "id": "024",
+  "title": "Webhook Configuration",
+  "category": "Integrations",
+  "tags": [
+    "integrations",
+    "webhook"
+  ],
+  "content": "POST JSON to your URL on ticket events. Retry 3 times with exponential backoff. Category: Integrations. Article ID: 024.",
+  "updated_at": "2026-06-10"
+}

@@ -1,0 +1,257 @@
+{
+  "version": 1,
+  "count": 50,
+  "updated_at": "2026-06-10",
+  "articles": [
+    {
+      "id": "001",
+      "title": "Getting Started with AcmeDesk",
+      "category": "Onboarding"
+    },
+    {
+      "id": "002",
+      "title": "Inviting Team Members",
+      "category": "Onboarding"
+    },
+    {
+      "id": "003",
+      "title": "Workspace Setup Checklist",
+      "category": "Onboarding"
+    },
+    {
+      "id": "004",
+      "title": "Understanding the Dashboard",
+      "category": "Onboarding"
+    },
+    {
+      "id": "005",
+      "title": "First Ticket Walkthrough",
+      "category": "Onboarding"
+    },
+    {
+      "id": "006",
+      "title": "Importing Existing Data",
+      "category": "Onboarding"
+    },
+    {
+      "id": "007",
+      "title": "Keyboard Shortcuts",
+      "category": "Onboarding"
+    },
+    {
+      "id": "008",
+      "title": "Subscription Plans Overview",
+      "category": "Billing"
+    },
+    {
+      "id": "009",
+      "title": "Updating Payment Method",
+      "category": "Billing"
+    },
+    {
+      "id": "010",
+      "title": "Viewing Invoices",
+      "category": "Billing"
+    },
+    {
+      "id": "011",
+      "title": "Upgrading Your Plan",
+      "category": "Billing"
+    },
+    {
+      "id": "012",
+      "title": "Usage Limits and Overages",
+      "category": "Billing"
+    },
+    {
+      "id": "013",
+      "title": "Canceling Subscription",
+      "category": "Billing"
+    },
+    {
+      "id": "014",
+      "title": "Billing FAQ",
+      "category": "Billing"
+    },
+    {
+      "id": "015",
+      "title": "Ticket Queues and Routing",
+      "category": "Features"
+    },
+    {
+      "id": "016",
+      "title": "SLA Policies",
+      "category": "Features"
+    },
+    {
+      "id": "017",
+      "title": "Canned Responses",
+      "category": "Features"
+    },
+    {
+      "id": "018",
+      "title": "Tags and Custom Fields",
+      "category": "Features"
+    },
+    {
+      "id": "019",
+      "title": "Automation Rules",
+      "category": "Features"
+    },
+    {
+      "id": "020",
+      "title": "Knowledge Base Publishing",
+      "category": "Features"
+    },
+    {
+      "id": "021",
+      "title": "Customer Portal",
+      "category": "Features"
+    },
+    {
+      "id": "022",
+      "title": "Slack Integration",
+      "category": "Integrations"
+    },
+    {
+      "id": "023",
+      "title": "Email Channel Setup",
+      "category": "Integrations"
+    },
+    {
+      "id": "024",
+      "title": "Webhook Configuration",
+      "category": "Integrations"
+    },
+    {
+      "id": "025",
+      "title": "API Authentication",
+      "category": "Integrations"
+    },
+    {
+      "id": "026",
+      "title": "Zapier Connector",
+      "category": "Integrations"
+    },
+    {
+      "id": "027",
+      "title": "Salesforce Sync",
+      "category": "Integrations"
+    },
+    {
+      "id": "028",
+      "title": "Google Workspace SSO",
+      "category": "Integrations"
+    },
+    {
+      "id": "029",
+      "title": "Two-Factor Authentication",
+      "category": "Security"
+    },
+    {
+      "id": "030",
+      "title": "Role Permissions Matrix",
+      "category": "Security"
+    },
+    {
+      "id": "031",
+      "title": "IP Allowlisting",
+      "category": "Security"
+    },
+    {
+      "id": "032",
+      "title": "Audit Log",
+      "category": "Security"
+    },
+    {
+      "id": "033",
+      "title": "Data Retention Policy",
+      "category": "Security"
+    },
+    {
+      "id": "034",
+      "title": "GDPR Data Export",
+      "category": "Security"
+    },
+    {
+      "id": "035",
+      "title": "Session Timeout",
+      "category": "Security"
+    },
+    {
+      "id": "036",
+      "title": "Installing the Mobile App",
+      "category": "Mobile"
+    },
+    {
+      "id": "037",
+      "title": "Push Notifications",
+      "category": "Mobile"
+    },
+    {
+      "id": "038",
+      "title": "Offline Mode",
+      "category": "Mobile"
+    },
+    {
+      "id": "039",
+      "title": "Mobile Attachments",
+      "category": "Mobile"
+    },
+    {
+      "id": "040",
+      "title": "User Roles and Teams",
+      "category": "Admin"
+    },
+    {
+      "id": "041",
+      "title": "Branding Customization",
+      "category": "Admin"
+    },
+    {
+      "id": "042",
+      "title": "Business Hours",
+      "category": "Admin"
+    },
+    {
+      "id": "043",
+      "title": "Email Templates",
+      "category": "Admin"
+    },
+    {
+      "id": "044",
+      "title": "Sandbox Environment",
+      "category": "Admin"
+    },
+    {
+      "id": "045",
+      "title": "Bulk User Management",
+      "category": "Admin"
+    },
+    {
+      "id": "046",
+      "title": "Login Issues",
+      "category": "Troubleshooting"
+    },
+    {
+      "id": "047",
+      "title": "Email Not Creating Tickets",
+      "category": "Troubleshooting"
+    },
+    {
+      "id": "048",
+      "title": "Slow Dashboard Loading",
+      "category": "Troubleshooting"
+    },
+    {
+      "id": "049",
+      "title": "Webhook Delivery Failures",
+      "category": "Troubleshooting"
+    },
+    {
+      "id": "050",
+      "title": "Missing Notifications",
+      "category": "Troubleshooting"
+    }
+  ]
+}

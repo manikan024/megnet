@@ -1,0 +1,15 @@
+{
+  "id": "040",
+  "title": "User Roles and Teams",
+  "category": "Admin",
+  "tags": [
+    "admin",
+    "user"
+  ],
+  "content": "Organize agents into teams. Managers see team queues and performance reports. Category: Admin. Article ID: 040.",
+  "updated_at": "2026-06-10",
+  "image": {
+    "path": "images/ticket-workflow.png",
+    "caption": "User Roles and Teams"
+  }
+}

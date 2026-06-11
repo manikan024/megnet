@@ -1,0 +1,13 @@
+{
+  "conversation_id": "test-conv",
+  "messages": [
+    {
+      "role": "user",
+      "content": "How do I view invoices?"
+    },
+    {
+      "role": "assistant",
+      "content": "<p>To view invoices, navigate to <strong>Billing</strong> > <strong>Invoices</strong>. From there, you can download a PDF of your invoices or email them to your accounting department.</p>\n\n<figure><img src=\"/api/v1/local-kb/assets/billing-flow.png\" alt=\"Viewing Invoices\" style=\"max-width:100%;border-radius:8px\"><figcaption>Viewing Invoices</figcaption></figure>"
+    }
+  ]
+}

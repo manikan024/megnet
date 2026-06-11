@@ -1,0 +1,15 @@
+{
+  "id": "035",
+  "title": "Session Timeout",
+  "category": "Security",
+  "tags": [
+    "security",
+    "session"
+  ],
+  "content": "Default 8 hours idle logout. Admins can set 1–24 hours under Security > Sessions. Category: Security. Article ID: 035.",
+  "updated_at": "2026-06-10",
+  "image": {
+    "path": "images/reports-analytics.png",
+    "caption": "Session Timeout"
+  }
+}
